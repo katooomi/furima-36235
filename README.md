@@ -24,11 +24,11 @@ has_many :orders
 | text                   | text          | null: false  |
 | category_id            | integer       | null: false  | 
 | condition_id           | integer       | null: false  |
-| delivery_fee           | integer       | null: false  |
-| sending_area           | integer       | null: false  |
-| duration               | integer       | null: false  |
+| delivery_fee_id        | integer       | null: false  |
+| sending_area_id        | integer       | null: false  |
+| duration_id            | integer       | null: false  |
 | price                  | integer       | null: false  |
-| user_id                | references    | null: false  |
+| user                   | references    | null: false  |
 
 ## Association
 _belongs_to :user
@@ -54,7 +54,7 @@ has_one :address
 | Column              | Type                | Options                           |
 | --------------------| ------------------- | --------------------------------- |
 | zip_code            | string              | null: false                       |
-| prefecture          | integer             | null: false                       |
+| prefecture_id       | integer             | null: false                       |
 | city                | string              | null: false                       |
 | street              | string              | null: false                       |
 | building            | string              |                                   |

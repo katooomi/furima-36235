@@ -22,14 +22,17 @@ has_many :orders
 | ---------------------- | --------------| -------------|
 | title                  | string        | null: false  |
 | text                   | text          | null: false  |
-| category               | ActiveHash    | null: false  |
-| price                  | string        | null: false  |
-| name                   | references    | null: false  |
+| category_id            | to_s          | null: false  | 
+| condition_id           | to_s          | null: false  |
+| delivery_fee           | to_s          | null: false  |
+| sending_area           | to_s          | null: false  |
+| duration               | to_s          | null: false  |
+| price                  | to_s          | null: false  |
+| user_id                | references    | null: false  |
 
 ## Association
 _belongs_to :user
 has_one :order
-belongs_to :item
 
 
 
@@ -43,24 +46,21 @@ belongs_to :item
 ## Association
 _belongs_to :user
 _belongs_to :item
-_belongs_to :order
 has_one :address
 
 
 
-# addressテーブル
+# addressesテーブル
 | Column              | Type                | Options                           |
 | --------------------| ------------------- | --------------------------------- |
-| zip_code            | string              | null: false, foreign_key: true    |                               |
-| prefecture          | ActiveHash          |                                   |
-| city                | string              | null: false, foreign_key: true    |
-| street              | string              | null: false, foreign_key: true    |
-| building            | string              | null: false, foreign_key: true    |
-| phone               | string              | null: false, foreign_key: true    |
+| zip_code            | string              | null: false                       |
+| prefecture          | to_s                | null: false                       |
+| city                | string              | null: false                       |
+| street              | string              | null: false                       |
+| building            | string              |                                   |
+| phone               | string              | null: false,                      |
 | order_id            | references          | null: false, foreign_key: true    |
 
 
 ## Association
-_belongs_to :user
-_belongs_to :item
 _belongs_to :order

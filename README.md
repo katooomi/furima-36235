@@ -1,24 +1,57 @@
-# README
+# usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column                  | Type       | Options     |
+| ----------------------- | -----------| ----------- |
+| user                    | string     | null: false |
+| email                   | string     | null: false |
+| encrypted_password      | string     | null: false |
+| full_name_kanji         | string     | null: false |
+| full_name_kana          | string     | null: false |
+| birthday                | ActiveHash | null: false |
 
-Things you may want to cover:
+## Association
+has_many :items
+has_many :orders
 
-* Ruby version
 
-* System dependencies
+# items テーブル
 
-* Configuration
+| Column                 | Type        | Options      |
+| ---------------------- | ------------| -------------|
+| image                  | string      | null: false  |
+| title                  | string      | null: false  |
+| text                   | text        | null: false  |
+| category               | ActiveHash  | null: false  |
+| price                  | string      | null: false  |
+| user                   | references  | null: false  |
 
-* Database creation
+## Association
+_belongs_to :user
+_belongs_to :order
 
-* Database initialization
 
-* How to run the test suite
+# ordersテーブル
+| Column         | Type          | Options                           |
+| -------------- | ----------    | --------------------------------- |
+| user           | references    | null: false, foreign_key: true    |
+| item           | references    | null: false, foreign_key: true    |
+| credit_card    | PAY.JP        | null: false, foreign_key: true    |
 
-* Services (job queues, cache servers, search engines, etc.)
+## Association
+_belongs_to :item
+_belongs_to :address
+has_many    :user
 
-* Deployment instructions
 
-* ...
+
+
+# addressテーブル
+| Column              | Type           | Options                           |
+| --------------------| -------------- | --------------------------------- |
+| user_address        | references     | null: false, foreign_key: true    |
+|                     |                |                                   |
+
+## Association
+_belongs_to :user
+_belongs_to :item
+_belongs_to :order

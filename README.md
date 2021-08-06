@@ -22,12 +22,12 @@ has_many :orders
 | ---------------------- | --------------| -------------|
 | title                  | string        | null: false  |
 | text                   | text          | null: false  |
-| category_id            | to_s          | null: false  | 
-| condition_id           | to_s          | null: false  |
-| delivery_fee           | to_s          | null: false  |
-| sending_area           | to_s          | null: false  |
-| duration               | to_s          | null: false  |
-| price                  | to_s          | null: false  |
+| category_id            | integer       | null: false  | 
+| condition_id           | integer       | null: false  |
+| delivery_fee           | integer       | null: false  |
+| sending_area           | integer       | null: false  |
+| duration               | integer       | null: false  |
+| price                  | integer       | null: false  |
 | user_id                | references    | null: false  |
 
 ## Association
@@ -54,12 +54,12 @@ has_one :address
 | Column              | Type                | Options                           |
 | --------------------| ------------------- | --------------------------------- |
 | zip_code            | string              | null: false                       |
-| prefecture          | to_s                | null: false                       |
+| prefecture          | integer             | null: false                       |
 | city                | string              | null: false                       |
 | street              | string              | null: false                       |
 | building            | string              |                                   |
 | phone               | string              | null: false,                      |
-| order_id            | references          | null: false, foreign_key: true    |
+| order               | references          | null: false, foreign_key: true    |
 
 
 ## Association

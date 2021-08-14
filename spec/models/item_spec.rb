@@ -114,7 +114,14 @@ RSpec.describe Item, type: :model do
         @item.price ='１２３４５'
         @item.valid?
         expect(@item.errors.full_messages).to include "Price is invalid"
-      end  
+      end
+
+      it '価格は半角英語だけでは登録できない' do
+        @item.price ='abcde'
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Price is invalid"
+      end
+
     end
   end
 end

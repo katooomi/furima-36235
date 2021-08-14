@@ -2,11 +2,11 @@ FactoryBot.define do
   factory :item do
     title           {"洋服"}
     text            {"洋服です"}
-    category_id        {"5"}
-    condition_id       {"4"}
-    delivery_fee_id    {"3"}
-    prefecture_id      {"2"}
-    duration_id       {"5"} 
+    category_id        {5}
+    condition_id       {4}
+    delivery_fee_id    {3}
+    prefecture_id      {2}
+    duration_id       {5} 
     price           {9999}
 
     association :user

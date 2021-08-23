@@ -8,7 +8,7 @@
     </h2>
     <div class="item-img-content">
       <%= image_tag @item.image, class:"item-box-img" %>
-      <%# 商品が売れている場合は、sold out %>
+      <%# 商品が売れている場合 %>
     <%if @item.order.present? %>
       <div class="sold-out">
         <span>Sold Out!!</span>
@@ -34,8 +34,7 @@
   <% end %>
   <% end %>
 
-    <%# //商品が売れていない場合はこちらを表示しましょう %>
-   
+    <%# //商品が売れていない場合 %>
     <div class="item-explain-box">
       <span><%= @item.text %></span>
     </div>

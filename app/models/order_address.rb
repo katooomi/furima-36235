@@ -19,7 +19,6 @@ class OrderAddress
 
 
   def save
-  # binding.pry
    order = Order.create(user_id: user_id, item_id: item_id)
    Address.create(zip_code: zip_code, prefecture_id: prefecture_id, city: city, street: street, building: building, phone: phone, order_id: order.id)
   end

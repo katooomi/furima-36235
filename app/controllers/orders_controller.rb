@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, except: :index
-
+  before_action :authenticate_user!, only: [:index, :create]
+  before_action :move_to_index, only:[:index, :create]
 
   def index
     @order = Order.new
@@ -35,5 +35,12 @@ class OrdersController < ApplicationController
         currency: 'jpy'                
       )
   end
+
+    def move_to_index
+      @item = Item.find(params[:item_id])
+      if @item.order.present?
+        redirect_to root_path
+      end
+    end
 
 end
